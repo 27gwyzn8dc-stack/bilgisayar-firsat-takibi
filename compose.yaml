@@ -1,0 +1,16 @@
+services:
+  monitor:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - monitor-data:/app/data
+    init: true
+    shm_size: 1gb
+    healthcheck:
+      test: ["CMD", "python", "-c", "import json,datetime; d=json.load(open('data/health.json')); assert (datetime.datetime.now(datetime.timezone.utc)-datetime.datetime.fromisoformat(d['last_cycle'])).total_seconds()<3600"]
+      interval: 60s
+      timeout: 5s
+      retries: 3
+volumes:
+  monitor-data:

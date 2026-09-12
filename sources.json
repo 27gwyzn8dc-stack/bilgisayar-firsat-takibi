@@ -1,0 +1,237 @@
+[
+  {
+    "name": "Vatan",
+    "enabled": true,
+    "hosts": [
+      "www.vatanbilgisayar.com"
+    ],
+    "direct_seller": "Vatan Bilgisayar",
+    "trusted_sellers": [
+      "Vatan Bilgisayar"
+    ],
+    "product_urls": [
+      "https://www.vatanbilgisayar.com/hp-omen-16-am0058nt-core-ultra-7-255h-rtx5060-24gb-1tb-ssd-16-inch-w11.html"
+    ],
+    "listing_urls": [
+      "https://www.vatanbilgisayar.com/notebook/",
+      "https://www.vatanbilgisayar.com/masaustu-bilgisayarlar/",
+      "https://www.vatanbilgisayar.com/islemciler/",
+      "https://www.vatanbilgisayar.com/ekran-kartlari/",
+      "https://www.vatanbilgisayar.com/solid-state-disk/",
+      "https://www.vatanbilgisayar.com/anakart/"
+    ],
+    "product_url_pattern": "[.]html$",
+    "max_products": 36,
+    "render": false,
+    "link_selector": "a.product-list__image-safe-link",
+    "adapter": "vatan"
+  },
+  {
+    "name": "MediaMarkt",
+    "enabled": true,
+    "hosts": [
+      "www.mediamarkt.com.tr"
+    ],
+    "direct_seller": "MediaMarkt",
+    "trusted_sellers": [
+      "MediaMarkt"
+    ],
+    "product_urls": [],
+    "listing_urls": [
+      "https://www.mediamarkt.com.tr/tr/category/laptop-504926.html"
+    ],
+    "product_url_pattern": "/tr/product/.*-[0-9]{7}\\.html",
+    "max_products": 12,
+    "render": false
+  },
+  {
+    "name": "Trendyol",
+    "enabled": false,
+    "hosts": [
+      "www.trendyol.com"
+    ],
+    "direct_seller": "",
+    "trusted_sellers": [],
+    "product_urls": [],
+    "listing_urls": [],
+    "product_url_pattern": "(?i)laptop|notebook|dizustu|oyuncu|omen",
+    "max_products": 12,
+    "render": false
+  },
+  {
+    "name": "Hepsiburada",
+    "enabled": false,
+    "hosts": [
+      "www.hepsiburada.com"
+    ],
+    "direct_seller": "",
+    "trusted_sellers": [],
+    "product_urls": [],
+    "listing_urls": [],
+    "product_url_pattern": "(?i)laptop|notebook|dizustu|oyuncu|omen",
+    "max_products": 12,
+    "render": false
+  },
+  {
+    "name": "Amazon TR",
+    "enabled": false,
+    "hosts": [
+      "www.amazon.com.tr"
+    ],
+    "direct_seller": "",
+    "trusted_sellers": [],
+    "product_urls": [],
+    "listing_urls": [],
+    "product_url_pattern": "(?i)laptop|notebook|dizustu|oyuncu|omen",
+    "max_products": 12,
+    "render": false
+  },
+  {
+    "name": "İncehesap",
+    "enabled": false,
+    "hosts": [
+      "www.incehesap.com"
+    ],
+    "direct_seller": "İncehesap",
+    "trusted_sellers": [
+      "İncehesap"
+    ],
+    "product_urls": [],
+    "listing_urls": [],
+    "product_url_pattern": "(?i)laptop|notebook|dizustu|oyuncu|omen",
+    "max_products": 12,
+    "render": false
+  },
+  {
+    "name": "Gaming.Gen.TR",
+    "enabled": true,
+    "hosts": [
+      "www.gaming.gen.tr"
+    ],
+    "direct_seller": "Gaming.Gen.TR",
+    "trusted_sellers": [
+      "Gaming.Gen.TR"
+    ],
+    "product_urls": [],
+    "listing_urls": [
+      "https://www.gaming.gen.tr/kategori/1/bilgisayar/laptop/",
+      "https://www.gaming.gen.tr/kategori/masaustu-bilgisayarlar/masaustu-bilgisayar/",
+      "https://www.gaming.gen.tr/kategori/bilgisayar-bilesenleri/islemci/",
+      "https://www.gaming.gen.tr/kategori/bilgisayar-bilesenleri/ekran-karti/",
+      "https://www.gaming.gen.tr/kategori/bilgisayar-bilesenleri/anakart/",
+      "https://www.gaming.gen.tr/kategori/bilgisayar-bilesenleri/ram-bellek/",
+      "https://www.gaming.gen.tr/kategori/bilgisayar-bilesenleri/ssd/",
+      "https://www.gaming.gen.tr/kategori/bilgisayar-bilesenleri/guc-kaynagi-psu/",
+      "https://www.gaming.gen.tr/kategori/bilgisayar-bilesenleri/sogutma-sistemleri/"
+    ],
+    "product_url_pattern": "/urun/\\d+/[^/]+/?$",
+    "max_products": 36,
+    "render": false,
+    "link_selector": "a[href]",
+    "adapter": "gaming"
+  },
+  {
+    "name": "GPN",
+    "enabled": true,
+    "hosts": [
+      "www.gpnteknoloji.com"
+    ],
+    "direct_seller": "GPN Teknoloji",
+    "trusted_sellers": [
+      "GPN Teknoloji"
+    ],
+    "listing_urls": [
+      "https://www.gpnteknoloji.com/kategori/notebook",
+      "https://www.gpnteknoloji.com/kategori/masaustu-pc",
+      "https://www.gpnteknoloji.com/kategori/ssd",
+      "https://www.gpnteknoloji.com/kategori/anakart",
+      "https://www.gpnteknoloji.com/kategori/ekran-karti",
+      "https://www.gpnteknoloji.com/kategori/islemci",
+      "https://www.gpnteknoloji.com/kategori/sogutucu",
+      "https://www.gpnteknoloji.com/kategori/guc-kaynagi"
+    ],
+    "product_url_pattern": "/urun/[^/]+/?$",
+    "microdata": true,
+    "max_products": 36
+  },
+  {
+    "name": "İtopya",
+    "hosts": [
+      "www.itopya.com"
+    ],
+    "enabled": true,
+    "listing_urls": [
+      "https://www.itopya.com/notebook_k14",
+      "https://www.itopya.com/islemci_k8",
+      "https://www.itopya.com/anakart_k9",
+      "https://www.itopya.com/ekran-karti_k11",
+      "https://www.itopya.com/rambellek_k10",
+      "https://www.itopya.com/bilgisayar-kasalari_k16",
+      "https://www.itopya.com/islemci-sogutucular_k78",
+      "https://www.itopya.com/guc-kaynagi_k33",
+      "https://www.itopya.com/ssd_k20"
+    ],
+    "product_url_pattern": "_u\\d+$",
+    "trusted_sellers": [
+      "İtopya"
+    ],
+    "direct_seller": "İtopya",
+    "max_products": 36,
+    "render": false
+  },
+  {
+    "name": "Game Garaj",
+    "hosts": [
+      "www.gamegaraj.com"
+    ],
+    "enabled": true,
+    "listing_urls": [
+      "https://www.gamegaraj.com/laptop/"
+    ],
+    "product_url_pattern": "/laptop/(?:game-garaj-slayer|msi|asus|gigabyte|lenovo).+/",
+    "trusted_sellers": [
+      "Game Garaj"
+    ],
+    "direct_seller": "Game Garaj",
+    "max_products": 12,
+    "render": false
+  },
+  {
+    "name": "Sinerji",
+    "hosts": [
+      "www.sinerji.gen.tr"
+    ],
+    "enabled": true,
+    "listing_urls": [
+      "https://www.sinerji.gen.tr/notebook-c-2025"
+    ],
+    "product_url_pattern": "-p-\\d+",
+    "trusted_sellers": [
+      "Sinerji"
+    ],
+    "direct_seller": "Sinerji",
+    "max_products": 12,
+    "render": false,
+    "note": "Canlı testte 403; her döngüde tekrar kontrol edilir."
+  },
+  {
+    "name": "TeknoBiyotik",
+    "enabled": true,
+    "hosts": [
+      "www.teknobiyotik.com"
+    ],
+    "direct_seller": "TeknoBiyotik",
+    "trusted_sellers": [
+      "TeknoBiyotik"
+    ],
+    "adapter": "teknobiyotik",
+    "listing_urls": [
+      "https://www.teknobiyotik.com/donanim/ekran-kart.html",
+      "https://www.teknobiyotik.com/donanim/anakart-mainboard.html",
+      "https://www.teknobiyotik.com/donanim/islemci-cpu.html",
+      "https://www.teknobiyotik.com/donanim/islemci-sogutucu.html"
+    ],
+    "product_url_pattern": "/donanim/[^/]+/[^/]+\\.html$",
+    "max_products": 24
+  }
+]
