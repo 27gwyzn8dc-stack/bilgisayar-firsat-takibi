@@ -13,7 +13,7 @@ def message(p):
     peers = ''.join(f"\n{e(x['seller'])}: {e(x['price'])} TL" for x in p.get('peers', [])[:5])
     return (f"<b>{label}</b>\n{e(p['title'])}\n"
             f"{reference_label}: {e(p['reference'])} TL\n<b>Yeni: {e(p['price'])} TL</b>\n"
-            f"Düşüş: %{e(p['discount'])}\nSatıcı: {e(p['seller'])}\n"
+            f"{'Fiyat farkı' if market else 'Düşüş'}: %{e(p['discount'])}\nSatıcı: {e(p['seller'])}\n"
             f"Model/SKU: {e(p['sku'])}\n<a href=\"{e(p['url'])}\">Ürünü aç</a>{peers}")
 
 async def dispatch(db, config):

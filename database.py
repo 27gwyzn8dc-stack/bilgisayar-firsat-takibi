@@ -64,7 +64,10 @@ class Database:
                 if market:
                     deal, peers, basis = market[:2], market[2], 'market'
             session.add(Observation(product_id=product.id, price=item['price'], observed_at=now))
-            pending = await session.scalar(select(Alert.id).where(Alert.product_id == product.id, Alert.status == 'pending'))
+            pending = await session.scalar(select(Alert).where(Alert.product_id == product.id, Alert.status == 'pending'))
+            if pending and (not deal or Decimal(pending.payload['price']) != item['price']):
+                pending.status = 'superseded'
+                pending = None
             allowed = product.notification_sent_at is None or item['price'] < product.last_alerted_price or now - product.notification_sent_at >= timedelta(hours=self.config.cooldown)
             if deal and allowed and not pending:
                 reference, discount = deal

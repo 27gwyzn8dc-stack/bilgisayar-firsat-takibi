@@ -15,8 +15,11 @@ AGENTS = ['LaptopPriceMonitor/1.0', 'LaptopPriceMonitor/1.0 (+price-history)']
 BLOCKS = ('<title>just a moment', '<title>access denied', 'cf-chl-widget')
 
 def valid_url(url, hosts):
-    p = urlsplit(url)
-    return p.scheme == 'https' and p.hostname in hosts and not p.username and p.port in (None, 443)
+    try:
+        p = urlsplit(url)
+        return p.scheme == 'https' and p.hostname in hosts and not p.username and p.port in (None, 443)
+    except (ValueError, TypeError):
+        return False
 
 def walk(value):
     if isinstance(value, dict):
@@ -133,6 +136,7 @@ class Scraper:
             limits=httpx.Limits(max_connections=8, max_keepalive_connections=4))
         self.semaphore = asyncio.Semaphore(3)
         self.reports = {}
+        self.checked_urls = set()
 
     async def close(self): await self.client.aclose()
 
@@ -210,6 +214,7 @@ class Scraper:
             cursor_file.write_text(str(cursor + max(1, len(selected)//max(1,len(groups)))))
             for url in selected:
                 try:
+                    self.checked_urls.add(url.split('?')[0].rstrip('/'))
                     html = await self.fetch(url, source)
                     report['pages'] += 1
                     items = list(extract(html, url, source))

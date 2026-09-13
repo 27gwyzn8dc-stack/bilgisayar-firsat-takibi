@@ -127,7 +127,7 @@
     "product_url_pattern": "/urun/\\d+/[^/]+/?$",
     "max_products": 36,
     "render": false,
-    "link_selector": "a[href]",
+    "link_selector": "ul.products li.product a[href]",
     "adapter": "gaming"
   },
   {
@@ -152,7 +152,8 @@
     ],
     "product_url_pattern": "/urun/[^/]+/?$",
     "microdata": true,
-    "max_products": 36
+    "max_products": 36,
+    "link_selector": ".showcase a[href]"
   },
   {
     "name": "İtopya",
@@ -177,7 +178,8 @@
     ],
     "direct_seller": "İtopya",
     "max_products": 36,
-    "render": false
+    "render": false,
+    "link_selector": ".product-block a[href]"
   },
   {
     "name": "Game Garaj",

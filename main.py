@@ -35,12 +35,13 @@ async def run(once=False):
     try:
         while True:
             try:
+                scraper.checked_urls.clear()
                 batches = await asyncio.gather(*(scan(s) for s in sources if s.get('enabled')))
                 results = [batch[0] for batch in batches]
                 offers = [item for batch in batches for item in batch[1]]
                 if not offers:
                     raise RuntimeError('Hiçbir kaynaktan doğrulanmış fiyat alınamadı')
-                comparisons = merge_offers(offers)
+                comparisons = merge_offers(offers, checked_urls=scraper.checked_urls)
                 queued_count = 0
                 record_errors = 0
                 for item in offers:
