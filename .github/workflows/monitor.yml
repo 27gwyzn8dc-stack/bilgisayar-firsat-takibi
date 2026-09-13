@@ -1,0 +1,52 @@
+name: Bilgisayar fiyat takibi
+on:
+  schedule:
+    - cron: "7,27,47 * * * *"
+  workflow_dispatch:
+    inputs:
+      bootstrap:
+        description: "Sadece ilk kurulumda bos gecmisle baslat"
+        type: boolean
+        default: false
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: price-monitor
+  cancel-in-progress: false
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    env:
+      NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+      STATE_KEY: ${{ secrets.STATE_KEY }}
+      GH_TOKEN: ${{ github.token }}
+      BOOTSTRAP: ${{ inputs.bootstrap || false }}
+      NOTIFICATION_PROVIDER: ntfy
+      DRY_RUN: "false"
+      MIN_REFERENCE: "0"
+      MAX_PRICE: "0"
+      PLAYWRIGHT_ENABLED: "false"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt -r requirements-cloud.txt
+      - name: Restore encrypted state
+        id: restore
+        run: python cloud_state.py restore
+      - name: Scan and notify
+        run: python main.py --once
+      - name: Encrypt state
+        if: always() && steps.restore.outcome == 'success'
+        run: python cloud_state.py save
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.restore.outcome == 'success'
+        with:
+          name: encrypted-monitor-state
+          path: state.enc
+          retention-days: 2
+          if-no-files-found: error
